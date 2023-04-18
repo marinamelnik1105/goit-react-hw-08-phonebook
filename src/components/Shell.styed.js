@@ -1,4 +1,5 @@
 import styled from 'styled-components';
+
 export const Shell = styled.div`
   width: 500px;
   border: 1px solid black;
