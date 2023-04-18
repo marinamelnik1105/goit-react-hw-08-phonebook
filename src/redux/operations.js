@@ -5,33 +5,34 @@ export const fetchContacts = createAsyncThunk(
   'contacts/fetchAll',
   async (_, thunkAPI) => {
     try {
-      const response = await axios.get('/contacts');
-      return response.data;
-    } catch (e) {
-      return thunkAPI.rejectWithValue(e.message);
+      const res = await axios.get('/contacts');
+      return res.data;
+    } catch (error) {
+      return thunkAPI.rejectWithValue(error.message);
     }
   }
 );
 
 export const addContacts = createAsyncThunk(
-  'contacts/addContacts',
-  async (contact, thunkAPI) => {
+  'contacts/addContact',
+  async (credentials, thunkAPI) => {
     try {
-      const response = await axios.post('/contacts', contact);
-      return response.data;
-    } catch (e) {
-      return thunkAPI.rejectWithValue(e.message);
+      const res = await axios.post('/contacts', credentials);
+      return res.data;
+    } catch (error) {
+      return thunkAPI.rejectWithValue(error.message);
     }
   }
 );
+
 export const deleteContacts = createAsyncThunk(
-  'contacts/deleteContacts',
-  async (contactsId, thunkAPI) => {
+  'contacts/deleteContact',
+  async (contactId, thunkAPI) => {
     try {
-      const response = await axios.delete(`/contacts/${contactsId}`);
-      return response.data;
-    } catch (e) {
-      return thunkAPI.rejectWithValue(e.message);
+      const res = await axios.delete(`/contacts/${contactId}`);
+      return res.data;
+    } catch (error) {
+      return thunkAPI.rejectWithValue(error.message);
     }
   }
 );

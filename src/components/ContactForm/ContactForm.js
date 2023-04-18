@@ -10,7 +10,7 @@ const FormSchema = Yup.object().shape({
     .min(2, 'Too Short!')
     .max(50, 'Too Long!')
     .required('Required'),
-  phone: Yup.string().min(6).required(),
+  number: Yup.string().min(6).required(),
 });
 export const ContactForm = () => {
   const dispatch = useDispatch();
@@ -31,7 +31,7 @@ export const ContactForm = () => {
     <Formik
       initialValues={{
         name: '',
-        phone: '',
+        number: '',
       }}
       validationSchema={FormSchema}
       onSubmit={onSave}
@@ -44,7 +44,7 @@ export const ContactForm = () => {
         </FormField>
         <FormField>
           Number
-          <Field type="tel" name="phone" />
+          <Field type="tel" name="number" />
           <ErrorMessage name="number" component="div" />
         </FormField>
         <button type="submit">Add contact</button>

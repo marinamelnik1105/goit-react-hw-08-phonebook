@@ -10,24 +10,25 @@ const ContactList = () => {
   const dispatch = useDispatch();
 
   const getVisibleContacts = () => {
-    if (contacts) {
+    if (filterValue) {
       const normalizedFilter = filterValue.toLowerCase();
       const nameFilter = contacts.filter(({ name }) =>
         name.toLowerCase().includes(normalizedFilter)
       );
       return nameFilter;
     } else {
-      return;
+      return contacts;
     }
   };
+
   const visibleContacts = getVisibleContacts();
   return (
     <List>
-      {visibleContacts.map(({ id, name, phone }) => (
+      {visibleContacts.map(({ id, name, number }) => (
         <Item key={id}>
           <ContactData>
             <NameContact>{name}</NameContact>
-            <p>{phone}</p>
+            <p>{number}</p>
           </ContactData>
           <button type="button" onClick={() => dispatch(deleteContacts(id))}>
             Delete
