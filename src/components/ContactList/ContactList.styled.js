@@ -17,3 +17,14 @@ export const Item = styled.li`
 export const NameContact = styled.p`
   font-weight: 700;
 `;
+export const Button = styled.button`
+  width: 100px;
+  border-radius: 4px;
+  border: #1f2868 1px solid;
+  background-color: #6bc3b2;
+  padding: 5px;
+  :hover {
+    background-color: #1f2868;
+    color: #fff;
+  }
+`;

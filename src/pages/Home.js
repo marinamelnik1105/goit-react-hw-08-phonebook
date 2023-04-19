@@ -1,26 +1,19 @@
-const styles = {
-  container: {
-    minHeight: 'calc(100vh - 50px)',
-    display: 'flex',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-  title: {
-    fontWeight: 500,
-    fontSize: 48,
-    textAlign: 'center',
-  },
-};
+import { Helmet } from 'react-helmet';
+import phonebook from '../images/phonebook1.jpg';
+import { Container, Image, Title } from './PagesStyles/Home.styled';
 
 export default function Home() {
   return (
-    <div style={styles.container}>
-      <h1 style={styles.title}>
-        Task manager welcome page{' '}
-        <span role="img" aria-label="Greeting icon">
-          💁‍♀️
-        </span>
-      </h1>
-    </div>
+    <>
+      <Helmet>
+        <title>Phonebook</title>
+      </Helmet>
+      <Container>
+        <Title>Welcome to your phonebook</Title>{' '}
+        <div>
+          <Image src={phonebook} alt="phonebook" />
+        </div>
+      </Container>
+    </>
   );
 }

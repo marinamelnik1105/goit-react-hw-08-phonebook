@@ -1,3 +1,4 @@
+import { Triangle } from 'react-loader-spinner';
 import { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { Helmet } from 'react-helmet';
@@ -6,6 +7,13 @@ import { getContacts, getError, getIsLoading } from 'redux/contactsSlice';
 import ContactList from 'components/ContactList/ContactList';
 import { ContactForm } from 'components/ContactForm/ContactForm';
 import { Filter } from 'components/Filter/Filter';
+import {
+  ContactsContainer,
+  ContactsTitle,
+  Container,
+  LoaderContainer,
+  Title,
+} from './PagesStyles/Contacts.styled';
 
 export default function Contacts() {
   const dispatch = useDispatch();
@@ -20,13 +28,30 @@ export default function Contacts() {
   return (
     <>
       <Helmet>
-        <title>Your phonebook</title>
+        <title>Phonebook</title>
       </Helmet>
-      <ContactForm />
-      <h2>Contacts</h2>
-      <Filter />
-      {isLoading && !error && <b>Request in progress...</b>}
-      {contacts && <ContactList />}
+      <Title>Phonebook</Title>
+      <Container>
+        <ContactForm />
+        <ContactsContainer>
+          <ContactsTitle>Contacts</ContactsTitle>
+          <Filter />
+          {isLoading && !error && (
+            <LoaderContainer>
+              <Triangle
+                height="80"
+                width="80"
+                color="#1f2868"
+                ariaLabel="triangle-loading"
+                wrapperStyle={{}}
+                wrapperClassName=""
+                visible={true}
+              />
+            </LoaderContainer>
+          )}
+          {contacts && <ContactList />}
+        </ContactsContainer>
+      </Container>
     </>
   );
 }

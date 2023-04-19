@@ -1,11 +1,13 @@
 import { createGlobalStyle } from 'styled-components';
 import 'modern-normalize';
-
+import phones from '../images/phones.jpg';
 export const GlobalStyle = createGlobalStyle`
 
 body{
-background-color:#ebebef;
-color:#5256d3;
+background-image: url('${phones}');
+background-repeat: no-repeat;
+background-size: cover;
+color: #1f2868;
 font-size:20px;}
 
 ul{
@@ -13,21 +15,17 @@ list-style: none;
 padding-left: 0;
 }
 
-button{
-width:150px;
-border-radius: 10px;
-border: #2a30df 1px solid;
-background-color:#a8a9db;
-padding: 5px;
-:hover{
-background-color:#2a30df;
-color:#fff; }
-}
+
 input{
-width: 400px}
+width: 400px;
+height: 35px;
+display:block;
+padding:5px}
 
 p{
 margin: 0;}
 
-h1,h2{
-margin: 0}`;
+h1,h2, h3{
+margin: 0}
+a{text-decoration:none;color:inherit;
+}`;
